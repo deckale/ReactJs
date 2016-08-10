@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/reactjs/react.min.js"></script>
+		<script src="../js/reactjs/react-dom.min.js"></script>
+		<script src="../js/browser.min.js"></script>
+	</head>
+
+	<body>
+		<!--- HTML标签 vs React组件 --->
+		<div id="example"></div>
+		<script type="text/babel">
+			var HelloMessage = React.createClass({ render:function() { return
+			<h1>Hello World!</h1>; } }); {/* 注意:原生HTML 元素名以小写字母开头,而自定义的React类名以大写字母开头,比如HelloMessage 不能写成helloMessage. 除此之外还需要注意组件类只能包含一个顶层标签,否则也会报错. */} ReactDOM.render(
+			<HelloMessage/>, document.getElementById("example") );
+		</script>
+
+		<div id="example2">
+		</div>
+		<script type="text/babel">
+			var HelloMessage = React.createClass({ render:function(){ return
+			<h1>Hello {this.props.name}</h1>; } }); ReactDOM.render(
+			<HelloMessage name="Runoob" />, document.getElementById("example2") ); {/* * 注意,在添加属性时,class属性需要写成className,for属性需要写成htmlFor,这是因为class和for是javascript的保留字 */*/}
+		</script>
+
+		<div id="example3">
+		</div>
+		<script type="text/babel">
+			var WebSite = React.createClass({ 
+				render:function() 
+				{ 
+					return (
+							<div>
+								<Name name={this.props.name}/>
+								<Link site={this.props.site}/>
+							</div>
+							);
+			 	}
+		 	 }); 
+		 	 
+			var Name=React.createClass({ 
+				render:function()
+				{ 
+					return (
+						<h1>{this.props.name}</h1>
+							); 
+				} 
+			});
+			
+			var Link = React.createClass({
+				render:function()
+				{
+					return (
+						<a href={this.props.site}>
+							{this.props.site}
+						</a>
+					);
+				}
+				
+			});
+			
+			React.render(
+				<WebSite name="菜鸟教程" site="http://www.runoob.com"/>,
+				document.getElementById("example3")
+			);
+		</script>
+	</body>
+
+</html>

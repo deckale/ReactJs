@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<pages>
+		<page name="index" type="https" >
+			<script isgroup="false"></script>
+			<script isgroup="true"></script>
+		</page>
+		
+	</pages>
+</xml>

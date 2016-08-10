@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/reactjs/react.min.js"></script>
+		<script src="../js/reactjs/react-dom.min.js"></script>
+		<script src="../js/browser.min.js"></script>
+	</head>
+
+	<body>
+		<div id="example"></div>
+		<script type="text/babel">
+			ReactDOM.render (
+			<div>
+				<h1>菜鸟教程</h1>
+				<h2>欢迎学习</h2>
+				<p data-myattribute="somevalue">这是一个很不错的Javascript库</p>
+			</div>
+			, document.getElementById("example") );
+		</script>
+
+		<!-- 独立文件  -->
+		<div id="example2"></div>
+		<script type="text/babel" src="../js/helloworld_react.js"></script>
+
+		<!-- javascript 表达式 -->
+		<div id="example3"></div>
+		<script type="text/babel">
+			ReactDOM.render(
+			<div>
+				<h1>{1+1}</h1>
+			</div>, document.getElementById("example3") );
+		</script>
+
+		<!-- 在JSX中不能使用if else 只能使用三元运算来替换 :? -->
+		<div id="example4"></div>
+		<script type="text/babel">
+			var i = 2;
+			ReactDOM.render(
+			<div> 
+				<h1>{i == 1 ? "true":"false"}</h1>
+			</div>,
+			document.getElementById("example4")
+			);
+		</script>
+		
+		<!-- 样式:React推荐内联样式,我们可以用cameCase语法来设置内联样式.React会在指定元素数字后自动添加px. -->
+		<div id="example5"></div>
+		<script type="text/babel">
+			var myStyle={
+				fontSize:100,
+				color:"#FF0000"
+			};
+			ReactDOM.render(
+			<h1 style={myStyle}>菜鸟教程</h1>,
+			document.getElementById("example5")
+			);
+		</script>
+		
+		<!--- 注释 --->
+		<div id="example6"></div>
+		<script type="text/babel">
+			ReactDOM.render(<div>
+				<h1>菜鸟教程6</h1>
+				{/*注释......*/}
+			</div>,
+			document.getElementById("example6")
+			);
+		</script>
+		
+		<!--- 数组 --->
+		<div id="example7"></div>
+		<script type="text/babel">
+		var arr=[
+				<h1>菜鸟教程7</h1>,
+				<h2>学的不仅是技术,更是梦想!</h2>,
+				];
+		ReactDOM.render(
+		<div>{arr}</div>,
+		document.getElementById("example7")
+		);
+		</script>
+		
+		
+	</body>
+
+</html>

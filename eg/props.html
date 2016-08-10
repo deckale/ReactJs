@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/reactjs/runoob/react-runoob.js"></script>
+		<script src="../js/reactjs/runoob/react-dom-runoob.js"></script>
+		<script src="../js/reactjs/runoob/browser.min-runoob.js"></script>
+	</head>
+	<body>
+		<!----
+			state 和 props 主要的区别在于 props 是不可变的，而 state 可以根据与用户交互来改变。
+			这就是为什么有些容器组件需要定义 state 来更新和修改数据。 而子组件只能通过 state 来传递数据。
+		---->
+		<div id="example"></div>
+		<script type="text/babel">
+			var HelloMessage = React.createClass({
+				render:function(){
+					return <h1>Hello {this.props.name}</h1>;
+				}
+			});
+			ReactDOM.render(
+				<HelloMessage name="Runoob"/>,
+				document.getElementById("example")
+			);
+		</script>
+		
+		<!---
+			你可以通过 getDefaultProps() 方法为 props 设置默认值，实例如下：
+		--->
+		<div id="example2"></div>
+		<script type="text/babel">
+			var HelloMessage = React.createClass({
+				getDefaultProps:function(){
+					return {
+						name:"Runoob"
+					};
+				},
+				render:function(){
+					return <h1>Hello {this.props.name}</h1>;
+				}
+			});
+			
+			ReactDOM.render(
+				<HelloMessage/>,
+				document.getElementById("example2")
+			);
+		</script>
+		
+		<div id="example3"></div>
+		<script type="text/babel">
+			var WebSite = React.createClass({
+				getInitialState:function(){
+					return{
+						name:"菜鸟教程",
+						site:"http://www.runoob.com"
+					};
+				},
+				render:function(){
+					return(
+						<div>
+							<Name name={this.state.name}/>
+							<Link site={this.state.site}/>
+						</div>
+					);
+				}
+			});
+			
+			var Name = React.createClass({
+				render:function(){
+					return (
+						<h1>{this.props.name}</h1>
+					);
+				}
+			});
+			
+			var Link = React.createClass({
+				render:function(){
+					return (
+						<h1>{this.props.link}</h1>
+					);
+				}
+			});
+			
+			React.render(
+				<WebSite/>,
+				document.getElementById("example3")
+			);
+		</script>
+		
+		<!--- 
+			Props验证,需要使用react.js和react-dom.js
+			Props 验证使用 propTypes，它可以保证我们的应用组件被正确使用，React.PropTypes 提供很多验证器 (validator) 来验证传入数据是否有效。当向 props 传入无效数据时，JavaScript 控制台会抛出警告。
+			以下实例创建一个 Mytitle 组件，属性 title 是必须的且是字符串，如果是一个数字则会报错 ：
+		--->
+		
+		<div id="example4"></div>
+		<script type="text/babel">
+			//var title = "菜鸟教程";
+			var title=123;
+			var MyTitle = React.createClass({
+				propTypes:{
+					title:React.PropTypes.string.isRequired,
+				},
+				render:function(){
+					return <h1>{this.props.title}</h1>;
+				}
+			});
+			ReactDOM.render(
+				<MyTitle title={title}/>,
+				document.getElementById("example4")
+			);
+		</script>
+		
+		
+	</body>
+</html>

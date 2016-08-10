@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<scripts>
+		<script name="reactjs">http://localhost:8008/ReactJs/js/reactjs/react.js</script>
+		<script name="reactjs1">http://localhost:8008/ReactJs/js/reactjs/react.js</script>
+		<script name="reactjs2">http://localhost:8008/ReactJs/js/reactjs/react.js</script>
+		<script name="reactjs3">http://localhost:8008/ReactJs/js/reactjs/react.js</script>
+	</scripts>
+	
+	
+	
+	
+	<scriptGroups>
+		<scriptGroup name="loadJs">
+			<script>reactjs</script>
+			<script>reactjs2</script>
+		</scriptGroup>
+	</scriptGroups>
+</xml>
